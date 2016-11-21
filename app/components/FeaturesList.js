@@ -1,5 +1,6 @@
 import React from 'react';
 import autoBind from 'react-autobind';
+import FeatureItem from './FeatureItem'
 
 class FeaturesList extends React.Component {
   constructor(props) {
@@ -10,31 +11,37 @@ class FeaturesList extends React.Component {
       {
         features: [
           {
+            key: 0,
             title: "SLA Asegurados",
             desc: "Estadísticas mensuales de los plazos de combinación y entrega de inspecciones por aseguradora.",
             icon: "mdi-av-equalizer"
           },
           {
+            key: 1,
             title: "Resumen Ejecutivo Mensual",
             desc: "Tabla comparativa mensual entre aseguradoras de los plazos y porcentajes de realización.",
             icon: "mdi-action-assignment"
           },
           {
+            key: 2,
             title: "Liquidación Siniestros",
             desc: "Utilitario para facturación de siniestros. Convierte un archivo .xls en un .txt formateado para importar al Gecom.",
             icon: "mdi-file-file-upload"
           },
           {
+            key: 3,
             title: "Semestral Aseguradoras",
             desc: "Resumen semestral de volúmenes de inspecciones realizadas, agrupados por aseguradora.",
             icon: "mdi-communication-business"
           },
           {
+            key: 4,
             title: "Semestral Inspectores",
             desc: "Resumen semestral de volúmenes de inspecciones realizadas, agrupados por inspector.",
             icon: "mdi-action-assignment-ind"
           },
           {
+            key: 5,
             title: "Semestral Centros",
             desc: "Resumen semestral de volúmenes de inspecciones realizadas, agrupados por centro de inspección.",
             icon: "mdi-maps-directions-car"
@@ -56,17 +63,7 @@ class FeaturesList extends React.Component {
           {
             this.state.features.map(function(feature, i) {
               return (
-                <div className="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="850ms">
-                  <div className="features">
-                    <div className="icon">
-                      <i className={feature.icon}></i>
-                    </div>
-                    <div className="features-text">
-                      <h4>{feature.title}</h4>
-                      <p>{feature.desc}</p>
-                    </div>
-                  </div>
-                </div>
+                <FeatureItem icon={feature.icon} title={feature.title} desc={feature.desc} key={i} />
               );
             })
           }
